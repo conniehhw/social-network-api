@@ -1,5 +1,5 @@
 const { Types } = require('mongoose');
-const { Schema, model } = require('Mongoose');
+const { Schema, model } = require('mongoose');
 const Reaction = require('./reaction');
 
 // Schema to create Post model

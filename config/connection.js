@@ -6,7 +6,7 @@ connect('mongodb://127.0.0.1:27017/userThoughtsDB', { //URI connection object or
   useUnifiedTopology: true,
 });
   
-// module.exports = connection;
+module.exports = connection;
 
 // const { connect, connection } = require('mongoose');
 
