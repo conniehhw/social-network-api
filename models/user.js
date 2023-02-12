@@ -19,6 +19,7 @@ const userSchema = new Schema(
 
         thoughts: [
             {
+                _id: Number,
                 type: Schema.Types.ObjectId,
                 ref: 'Thought',
             },
@@ -26,7 +27,7 @@ const userSchema = new Schema(
         
         friends: [
             {
-                type: id,
+                _id: Number,
                 type: Schema.Types.ObjectId,
                 ref: 'User',
             }
@@ -34,7 +35,7 @@ const userSchema = new Schema(
     },
        {      
         toJSON: {
-            Virtuals: true, // need to update virtuals in this model
+            Virtuals: true, 
         },
         id: false,
     }
