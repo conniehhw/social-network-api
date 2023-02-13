@@ -19,7 +19,7 @@ const userSchema = new Schema(
 
         thoughts: [
             {
-                _id: Number,
+                // _id: Number,
                 type: Schema.Types.ObjectId,
                 ref: 'Thought',
             },
@@ -27,7 +27,7 @@ const userSchema = new Schema(
         
         friends: [
             {
-                _id: Number,
+                // _id: Number,
                 type: Schema.Types.ObjectId,
                 ref: 'User',
             }

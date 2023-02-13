@@ -1,4 +1,4 @@
-// const { ObjectId } = require('mongoose').Types;
+const { ObjectId } = require('mongoose').Types;
 const { User, Thought } = require('../models');
 
 // const User = require('../models/User');
@@ -33,9 +33,16 @@ module.exports = {
       { $set: req.body },
       { runValidators: true, new: true }
     )
-        .then((user) => res.json(user)) // 
-        .catch((err) => res.status(500).json(err));
-  },
+        .then((user) => 
+          !user
+            ? res.status(404).json({ message: 'No user with this id!' })
+            : res.json(user)
+        )
+        .catch((err) => {
+          console.log(err);
+          res.status(500).json(err);
+        });
+    },
 
     // deletes user and associated thoughts
       deleteUser(req, res) {
@@ -43,7 +50,7 @@ module.exports = {
           .then((user) =>
             !user
               ? res.status(404).json({ message: 'No user with that ID' })
-              : Thoughts.deleteMany({ _id: { $in: user.thoughts } })
+              : Thought.deleteMany({ _id: { $in: user.thoughts } })
           )
           .then(() => res.json({ message: 'User and associated thoughts deleted!' }))
           .catch((err) => res.status(500).json(err));
