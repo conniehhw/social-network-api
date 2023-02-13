@@ -15,7 +15,12 @@ router.route('/').get(getUsers).post(createUser);
 // /api/users/:userId
 router.route('/:userId').get(getSingleUser).put(updateUser).delete(deleteUser);
 
+// /api/users/:userId/friends/friendId
+router.route('/:userId/friends/:userId').post(addFriend);
+
 // /api/users/:userId/friends/:friendId
-router.route('/:userId/friends/:friendId').post(addFriend).delete(deleteFriend); //why is this blue? b/c nested?
+router.route('/:userId/friends/:friendId')
+  // .post(addFriend)
+  .delete(deleteFriend); //why is this blue? b/c nested?
 
 module.exports = router;
