@@ -7,22 +7,3 @@ connect('mongodb://127.0.0.1:27017/userThoughtsDB', { //URI connection object or
 });
   
 module.exports = connection;
-
-// const { connect, connection } = require('mongoose');
-
-// connect('mongodb://127.0.0.1:27017/userThoughtsDB', {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// });
-
-// module.exports = connection;
-
-
-// const mongoose = require('mongoose');
-
-// mongoose.connect('mongodb://127.0.0.1:27017/userThoughtsDB', {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// });
-
-// module.exports = mongoose.connection;
