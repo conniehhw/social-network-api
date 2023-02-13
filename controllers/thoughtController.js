@@ -1,5 +1,6 @@
 const { Thought, User } = require('../models');
 
+// exporting thought fetch api routes for different CRUD operations
 module.exports = {
     getThoughts(req, res) {
       Thought.find()

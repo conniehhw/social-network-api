@@ -1,15 +1,14 @@
 const { ObjectId } = require('mongoose').Types;
 const { User, Thought } = require('../models');
 
-// const User = require('../models/User');
-
+// export user fetch api routes for different CRUD operations
 module.exports = {
-  getUsers(req, res) {                      //function to get all the users
+  getUsers(req, res) {                     
     User.find()
       .then((users) => res.json(users))
       .catch((err) => res.status(500).json(err));
   },
-  getSingleUser(req, res) {                  // Gets a single user
+  getSingleUser(req, res) {                  
     User.findOne({ _id: req.params.userId })
       .select('-__v')
       .then((user) =>
@@ -22,7 +21,7 @@ module.exports = {
   // create a new user
   createUser(req, res) {
     User.create(req.body)
-      .then((user) => res.json(user)) // what is dbUserData referencing // change to user
+      .then((user) => res.json(user)) // 
       .catch((err) => res.status(500).json(err));
   },
 
@@ -56,7 +55,7 @@ module.exports = {
           .catch((err) => res.status(500).json(err));
       },
 
-    // add new friend to list
+    // add new friend to list ==> this is currently not working, need debugging
       addFriend(req, res) {
         User.findOneAndUpdate(
             { _id: req.params.userId },
@@ -65,7 +64,7 @@ module.exports = {
             .catch((err) => res.status(500).json(err));
       },
 
-    // remove friend from list
+    // remove friend from list ==> this is currently not working, need debugging
         deleteFriend(req, res) {
         User.findOneAndDelete(
             { _id: req.params.userId },

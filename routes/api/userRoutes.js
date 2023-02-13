@@ -21,6 +21,6 @@ router.route('/:userId/friends/:userId').post(addFriend);
 // /api/users/:userId/friends/:friendId
 router.route('/:userId/friends/:friendId')
   // .post(addFriend)
-  .delete(deleteFriend); //why is this blue? b/c nested?
+  .delete(deleteFriend); 
 
 module.exports = router;
