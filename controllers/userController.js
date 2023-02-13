@@ -28,7 +28,11 @@ module.exports = {
 
     //updates a user
   updateUser(req, res) {
-    User.findOneAndUpdate({id: req.params.userId})
+    User.findOneAndUpdate(
+      { _id: req.params.userId },
+      { $set: req.body },
+      { runValidators: true, new: true }
+    )
         .then((user) => res.json(user)) // 
         .catch((err) => res.status(500).json(err));
   },
