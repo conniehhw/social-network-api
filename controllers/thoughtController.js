@@ -33,7 +33,7 @@ module.exports = {
     },
 
     deleteThought(req, res) {
-      Thought.findOneAndDelete({ _id: req.params.ThoughtId })
+      Thought.findOneAndDelete({ _id: req.params.thoughtId })
       .then((user) => res.json(user)) // 
       .catch((err) => res.status(500).json(err));
     },
